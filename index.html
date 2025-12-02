@@ -23,7 +23,8 @@
                     },
                     colors: {
                         brand: {
-                            orange: '#FF6B6B',
+                            // CAMBIO: Se reemplazó 'orange' por 'red' con un tono rojo vibrante (#EF4444)
+                            red: '#EF4444', 
                             dark: '#2D3436',
                             blue: '#0984E3',
                             sky: '#E0F7FA',
@@ -84,6 +85,9 @@
 
         .hover-float { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .hover-float:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        
+        /* Utilidad para ocultar secciones */
+        .hidden-section { display: none; }
     </style>
 </head>
 <body class="text-gray-700 antialiased smooth-scroll min-h-screen">
@@ -91,17 +95,17 @@
     <nav class="fixed w-full z-50 glass top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-orange to-orange-300 flex items-center justify-center text-white text-xl shadow-lg">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="goHome()">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-red to-red-300 flex items-center justify-center text-white text-xl shadow-lg">
                         <i class="fa-solid fa-gift animate-pulse-slow"></i>
                     </div>
-                    <span class="font-heading font-bold text-xl text-brand-dark tracking-tight">El Regalo <span class="text-brand-orange">Más Grande</span></span>
+                    <span class="font-heading font-bold text-xl text-brand-dark tracking-tight">El Regalo <span class="text-brand-red">Más Grande</span></span>
                 </div>
                 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-600 hover:text-brand-orange font-medium transition relative group">Inicio<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange transition-all group-hover:w-full"></span></a>
-                    <a href="#soluciones" class="text-gray-600 hover:text-brand-orange font-medium transition relative group">Nuestra Solución<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange transition-all group-hover:w-full"></span></a>
-                    <a href="#registro" class="text-gray-600 hover:text-brand-orange font-medium transition relative group">Únete<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-orange transition-all group-hover:w-full"></span></a>
+                <div class="hidden md:flex space-x-8 main-nav-links">
+                    <a href="#inicio" class="text-gray-600 hover:text-brand-red font-medium transition relative group">Inicio<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-red transition-all group-hover:w-full"></span></a>
+                    <a href="#soluciones" class="text-gray-600 hover:text-brand-red font-medium transition relative group">Nuestra Solución<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-red transition-all group-hover:w-full"></span></a>
+                    <a href="#registro" class="text-gray-600 hover:text-brand-red font-medium transition relative group">Únete<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-red transition-all group-hover:w-full"></span></a>
                 </div>
 
                 <div class="hidden md:flex">
@@ -113,72 +117,74 @@
         </div>
     </nav>
 
-    <section id="inicio" class="pt-32 pb-20 relative overflow-hidden min-h-screen flex items-center bg-gradient-to-b from-blue-100 via-white to-white">
-        
-        <div class="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-hidden">
-            <div class="cloud-shape cloud-2 top-[15%] animate-float-slow" style="animation-delay: -5s;"></div>
-            <div class="cloud-shape cloud-2 top-[65%] animate-float-slow" style="animation-delay: -20s; transform: scale(1.2);"></div>
-            <div class="cloud-shape cloud-1 top-[45%] animate-float-medium" style="animation-delay: -2s;"></div>
-            <div class="cloud-shape cloud-1 top-[30%] animate-float-fast opacity-100" style="animation-delay: -10s; z-index: 5;"></div>
-            <div class="cloud-shape cloud-1 bottom-[15%] animate-float-fast opacity-100" style="animation-delay: -15s; transform: scale(0.8); z-index: 5;"></div>
-        </div>
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-orange opacity-20 blur-3xl z-0"></div>
+    <main id="mainLanding">
+        <section id="inicio" class="pt-32 pb-20 relative overflow-hidden min-h-screen flex items-center bg-gradient-to-b from-blue-100 via-white to-white">
+            
+            <div class="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-hidden">
+                <div class="cloud-shape cloud-2 top-[15%] animate-float-slow" style="animation-delay: -5s;"></div>
+                <div class="cloud-shape cloud-2 top-[65%] animate-float-slow" style="animation-delay: -20s; transform: scale(1.2);"></div>
+                <div class="cloud-shape cloud-1 top-[45%] animate-float-medium" style="animation-delay: -2s;"></div>
+                <div class="cloud-shape cloud-1 top-[30%] animate-float-fast opacity-100" style="animation-delay: -10s; z-index: 5;"></div>
+                <div class="cloud-shape cloud-1 bottom-[15%] animate-float-fast opacity-100" style="animation-delay: -15s; transform: scale(0.8); z-index: 5;"></div>
+            </div>
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-red opacity-20 blur-3xl z-0"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <div class="space-y-8 relative">
-                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-white border border-blue-200 shadow-md text-brand-blue text-sm font-bold mb-4 hover-float">
-                        <i class="fa-solid fa-cloud text-brand-blue mr-2"></i>
-                        Plataforma Centralizada de Impacto
-                    </div>
-                    <h1 class="font-heading text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight drop-shadow-sm">
-                        Tu tiempo es el regalo <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-orange-500">que eleva vidas.</span>
-                    </h1>
-                    <p class="text-lg text-gray-600 leading-relaxed max-w-lg glass p-6 rounded-3xl border border-white/60 shadow-lg relative">
-                        Conectamos voluntarios y coordinadores en un ecosistema digital transparente como el cielo. Adiós a los procesos manuales; hola al impacto medible.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#registro" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-gradient-to-r from-brand-orange to-orange-500 shadow-orange-500/30 shadow-xl hover-float">
-                            <i class="fa-solid fa-paper-plane mr-2"></i> Quiero Volar Alto
-                        </a>
-                        <a href="#" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-brand-dark border-2 border-gray-300 hover:border-brand-dark bg-white/80 backdrop-blur transition hover-float">
-                            Soy Coordinador
-                        </a>
-                    </div>
-                </div>
-
-                <div class="relative perspective-1000">
-                    <div class="cloud-shape cloud-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-80 blur-sm z-0"></div>
-
-                    <div class="relative bg-white/80 backdrop-blur-2xl rounded-[2rem] shadow-2xl border border-white/80 overflow-hidden animate-pulse-slow hover-float z-20">
-                        <div class="bg-gradient-to-r from-blue-100 to-white border-b border-blue-50 p-5 flex items-center justify-between">
-                             <div class="flex gap-2">
-                                 <div class="w-3 h-3 rounded-full bg-red-400 shadow-sm"></div>
-                                 <div class="w-3 h-3 rounded-full bg-yellow-400 shadow-sm"></div>
-                                 <div class="w-3 h-3 rounded-full bg-green-400 shadow-sm"></div>
-                             </div>
-                            <span class="text-xs text-brand-blue font-bold uppercase tracking-widest"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Sky Dashboard</span>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <div class="space-y-8 relative">
+                        <div class="inline-flex items-center px-4 py-2 rounded-full bg-white border border-blue-200 shadow-md text-brand-blue text-sm font-bold mb-4 hover-float">
+                            <i class="fa-solid fa-cloud text-brand-blue mr-2"></i>
+                            Plataforma Centralizada de Impacto
                         </div>
-                        <div class="p-8 space-y-8 bg-gradient-to-b from-white to-blue-50/50">
-                            <div class="flex justify-between items-end relative">
-                                <div>
-                                    <p class="text-gray-500 text-xs uppercase tracking-wider font-bold mb-2">Impacto Acumulado</p>
-                                    <p class="text-5xl font-heading font-black text-brand-dark tracking-tight">124 <span class="text-2xl text-brand-orange">hrs</span></p>
-                                </div>
-                                <div class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center">
-                                    <i class="fa-solid fa-arrow-trend-up mr-2"></i> +12% Altitud
-                                </div>
+                        <h1 class="font-heading text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight drop-shadow-sm">
+                            Tu tiempo es el regalo <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-500">que eleva vidas.</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 leading-relaxed max-w-lg glass p-6 rounded-3xl border border-white/60 shadow-lg relative">
+                            Conectamos voluntarios y coordinadores en un ecosistema digital transparente como el cielo. Adiós a los procesos manuales; hola al impacto medible.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#registro" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-gradient-to-r from-brand-red to-red-500 shadow-red-500/30 shadow-xl hover-float">
+                                <i class="fa-solid fa-paper-plane mr-2"></i> Quiero Volar Alto
+                            </a>
+                            <button onclick="showCoordinatorDashboard()" class="flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-brand-dark border-2 border-gray-300 hover:border-brand-dark bg-white/80 backdrop-blur transition hover-float cursor-pointer">
+                                Soy Coordinador
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="relative perspective-1000">
+                        <div class="cloud-shape cloud-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-80 blur-sm z-0"></div>
+
+                        <div class="relative bg-white/80 backdrop-blur-2xl rounded-[2rem] shadow-2xl border border-white/80 overflow-hidden animate-pulse-slow hover-float z-20">
+                            <div class="bg-gradient-to-r from-blue-100 to-white border-b border-blue-50 p-5 flex items-center justify-between">
+                                 <div class="flex gap-2">
+                                     <div class="w-3 h-3 rounded-full bg-red-400 shadow-sm"></div>
+                                     <div class="w-3 h-3 rounded-full bg-yellow-400 shadow-sm"></div>
+                                     <div class="w-3 h-3 rounded-full bg-green-400 shadow-sm"></div>
+                                 </div>
+                                <span class="text-xs text-brand-blue font-bold uppercase tracking-widest"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Sky Dashboard</span>
                             </div>
-                            <div class="space-y-3">
-                                <div class="flex justify-between text-sm font-bold">
-                                    <span class="text-brand-dark flex items-center"><i class="fa-solid fa-star text-yellow-400 mr-2"></i> Nivel: Guardián del Cielo</span>
-                                    <span class="text-brand-blue">80%</span>
+                            <div class="p-8 space-y-8 bg-gradient-to-b from-white to-blue-50/50">
+                                <div class="flex justify-between items-end relative">
+                                    <div>
+                                        <p class="text-gray-500 text-xs uppercase tracking-wider font-bold mb-2">Impacto Acumulado</p>
+                                        <p class="text-5xl font-heading font-black text-brand-dark tracking-tight">124 <span class="text-2xl text-brand-red">hrs</span></p>
+                                    </div>
+                                    <div class="bg-green-100 text-green-700 px-4 py-2 rounded-full text-xs font-bold shadow-sm flex items-center">
+                                        <i class="fa-solid fa-arrow-trend-up mr-2"></i> +12% Altitud
+                                    </div>
                                 </div>
-                                <div class="h-5 bg-blue-100/70 rounded-full overflow-hidden p-1 backdrop-blur-md shadow-inner border border-blue-200/50">
-                                    <div class="h-full bg-gradient-to-r from-brand-blue to-cyan-400 w-4/5 rounded-full relative overflow-hidden shadow-sm">
-                                        <div class="absolute top-0 left-0 w-full h-full bg-white/30 animate-pulse"></div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between text-sm font-bold">
+                                        <span class="text-brand-dark flex items-center"><i class="fa-solid fa-star text-yellow-400 mr-2"></i> Nivel: Guardián del Cielo</span>
+                                        <span class="text-brand-blue">80%</span>
+                                    </div>
+                                    <div class="h-5 bg-blue-100/70 rounded-full overflow-hidden p-1 backdrop-blur-md shadow-inner border border-blue-200/50">
+                                        <div class="h-full bg-gradient-to-r from-brand-blue to-cyan-400 w-4/5 rounded-full relative overflow-hidden shadow-sm">
+                                            <div class="absolute top-0 left-0 w-full h-full bg-white/30 animate-pulse"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -186,223 +192,413 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="soluciones" class="py-32 relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
-        <div class="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-hidden">
-            <div class="cloud-shape cloud-2 top-[10%] animate-float-slow opacity-40" style="animation-delay: -8s;"></div>
-             <div class="cloud-shape cloud-1 top-[60%] left-0 animate-float-medium opacity-50" style="animation-delay: -2s; transform: scale(0.7);"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">Tecnología que despeja el camino</h2>
-                <p class="text-gray-600 text-xl leading-relaxed">Elevamos la gestión del voluntariado por encima de la burocracia manual, directamente a la nube.</p>
+        <section id="soluciones" class="py-32 relative overflow-hidden bg-gradient-to-b from-white via-blue-50 to-white">
+            <div class="absolute inset-0 z-0 pointer-events-none w-full h-full overflow-hidden">
+                <div class="cloud-shape cloud-2 top-[10%] animate-float-slow opacity-40" style="animation-delay: -8s;"></div>
+                 <div class="cloud-shape cloud-1 top-[60%] left-0 animate-float-medium opacity-50" style="animation-delay: -2s; transform: scale(0.7);"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-10 rounded-[2rem] bg-white border border-blue-100 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover-float group relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-50/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="w-20 h-20 bg-blue-100 text-brand-blue rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 group-hover:rotate-6 transition duration-500 shadow-md bg-gradient-to-tr from-blue-100 to-white">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                        </div>
-                        <h3 class="font-heading text-2xl font-bold text-brand-dark mb-4">Matching Celestial</h3>
-                        <p class="text-gray-500 leading-relaxed text-lg">Algoritmos inteligentes que conectan el talento exacto con la necesidad precisa de forma automática.</p>
-                    </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-20">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">Tecnología que despeja el camino</h2>
+                    <p class="text-gray-600 text-xl leading-relaxed">Elevamos la gestión del voluntariado por encima de la burocracia manual, directamente a la nube.</p>
                 </div>
 
-                <div class="p-10 rounded-[2rem] bg-white border border-orange-100 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover-float group relative overflow-hidden">
-                     <div class="absolute inset-0 bg-gradient-to-br from-orange-50/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="w-20 h-20 bg-orange-100 text-brand-orange rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 group-hover:-rotate-6 transition duration-500 shadow-md bg-gradient-to-tr from-orange-100 to-white">
-                            <i class="fa-solid fa-file-circle-check"></i>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="p-10 rounded-[2rem] bg-white border border-blue-100 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover-float group relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-20 h-20 bg-blue-100 text-brand-blue rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 group-hover:rotate-6 transition duration-500 shadow-md bg-gradient-to-tr from-blue-100 to-white">
+                                <i class="fa-solid fa-handshake-angle"></i>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-brand-dark mb-4">Matching Celestial</h3>
+                            <p class="text-gray-500 leading-relaxed text-lg">Algoritmos inteligentes que conectan el talento exacto con la necesidad precisa de forma automática.</p>
                         </div>
-                        <h3 class="font-heading text-2xl font-bold text-brand-dark mb-4">Validación en la Nube</h3>
-                        <p class="text-gray-500 leading-relaxed text-lg">Trazabilidad instantánea. Evidencias que se suben, se validan y se transforman en certificados digitales.</p>
                     </div>
-                </div>
 
-                <div class="p-10 rounded-[2rem] bg-white border border-purple-100 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover-float group relative overflow-hidden">
-                     <div class="absolute inset-0 bg-gradient-to-br from-purple-50/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div class="relative z-10">
-                        <div class="w-20 h-20 bg-purple-100 text-purple-600 rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition duration-500 shadow-md bg-gradient-to-tr from-purple-100 to-white">
-                            <i class="fa-solid fa-medal"></i>
+                    <div class="p-10 rounded-[2rem] bg-white border border-red-100 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover-float group relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-br from-red-50/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-20 h-20 bg-red-100 text-brand-red rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 group-hover:-rotate-6 transition duration-500 shadow-md bg-gradient-to-tr from-red-100 to-white">
+                                <i class="fa-solid fa-file-circle-check"></i>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-brand-dark mb-4">Validación en la Nube</h3>
+                            <p class="text-gray-500 leading-relaxed text-lg">Trazabilidad instantánea. Evidencias que se suben, se validan y se transforman en certificados digitales.</p>
                         </div>
-                        <h3 class="font-heading text-2xl font-bold text-brand-dark mb-4">Insignias de Altura</h3>
-                        <p class="text-gray-500 leading-relaxed text-lg">Gamificación que motiva. Acumula horas, desbloquea niveles "cielo" y recibe reconocimiento real.</p>
+                    </div>
+
+                    <div class="p-10 rounded-[2rem] bg-white border border-purple-100 shadow-[0_20px_50px_-20px_rgba(0,0,0,0.1)] hover-float group relative overflow-hidden">
+                         <div class="absolute inset-0 bg-gradient-to-br from-purple-50/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="w-20 h-20 bg-purple-100 text-purple-600 rounded-3xl flex items-center justify-center text-4xl mb-8 group-hover:scale-110 transition duration-500 shadow-md bg-gradient-to-tr from-purple-100 to-white">
+                                <i class="fa-solid fa-medal"></i>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-brand-dark mb-4">Insignias de Altura</h3>
+                            <p class="text-gray-500 leading-relaxed text-lg">Gamificación que motiva. Acumula horas, desbloquea niveles "cielo" y recibe reconocimiento real.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="registro" class="py-32 bg-brand-dark relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-brand-orange/30 blur-[120px]"></div>
-            <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-blue/30 blur-[120px]"></div>
+        <section id="registro" class="py-32 bg-brand-dark relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div class="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-brand-red/30 blur-[120px]"></div>
+                <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-blue/30 blur-[120px]"></div>
+                
+                <div class="cloud-shape cloud-2 top-[20%] animate-float-slow opacity-20 bg-gray-400" style="animation-delay: -3s;"></div>
+                <div class="cloud-shape cloud-1 bottom-[30%] animate-float-fast opacity-30 bg-gray-300" style="animation-delay: -12s; z-index: 20;"></div>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-white/95 backdrop-blur-xl rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row hover-float border border-white/20">
+                    
+                    <div class="md:w-5/12 bg-cover bg-center relative hidden md:block" style="background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-red/50 to-brand-blue/40 mix-blend-multiply"></div>
+                        <div class="absolute bottom-0 left-0 p-12 text-white">
+                            <i class="fa-solid fa-hand-holding-heart text-5xl mb-4"></i>
+                            <h3 class="font-heading text-3xl font-bold leading-tight">Tu misión inicia ahora.</h3>
+                            <p class="text-gray-200 mt-2">Pequeños actos, impacto global.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-7/12 p-12 lg:p-16 relative">
+                        <div id="formContent" class="transition-all duration-500">
+                            <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Únete a la Tripulación</h2>
+                            <p class="text-gray-600 mb-8 text-lg">Regístrate en nuestra plataforma y empieza a construir tu historial de impacto.</p>
+                            
+                            <form id="registrationForm" class="space-y-6">
+                                <div class="grid sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
+                                        <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue transition duration-300 shadow-sm" required>
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Correo Electrónico</label>
+                                        <input type="email" id="email" name="email" placeholder="volar@ejemplo.org" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue transition duration-300 shadow-sm" required>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <label for="rol" class="block text-sm font-medium text-gray-700 mb-2">Quiero registrarme como</label>
+                                    <select id="rol" name="rol" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue transition duration-300 shadow-sm appearance-none" required>
+                                        <option value="" disabled selected>Selecciona tu rol</option>
+                                        <option value="voluntario">Voluntario Individual</option>
+                                        <option value="coordinador">Coordinador de Proyecto</option>
+                                        <option value="organizacion">Organización/ONG</option>
+                                    </select>
+                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div class="flex items-center h-5">
+                                        <input id="terminos" name="terminos" type="checkbox" class="focus:ring-brand-red h-5 w-5 text-brand-red border-gray-300 rounded transition" required>
+                                    </div>
+                                    <div class="ml-3 text-sm">
+                                        <label for="terminos" class="font-medium text-gray-700">Acepto los <a href="#" class="text-brand-red hover:text-red-700 font-bold">Términos y Condiciones</a>.</label>
+                                    </div>
+                                </div>
+                                
+                                <button type="submit" id="submitBtn" class="w-full flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-gradient-to-r from-brand-blue to-cyan-500 shadow-blue-500/40 shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300">
+                                    <span id="btnText"><i class="fa-solid fa-user-plus mr-2"></i> Confirmar Registro</span>
+                                    <span id="btnLoader" class="hidden"><i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Enviando...</span>
+                                </button>
+                            </form>
+                        </div>
+
+                        <div id="successMessage" class="hidden h-full flex flex-col justify-center items-center text-center animate-fade-in py-10">
+                            <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fa-solid fa-check text-5xl text-green-500"></i>
+                            </div>
+                            <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">¡Gracias por registrarte!</h2>
+                            <p class="text-gray-600 text-lg mb-8 max-w-md">Hemos recibido tus datos correctamente. Pronto nos contactaremos contigo para empezar esta aventura.</p>
+                            <button onclick="location.reload()" class="px-8 py-3 text-brand-blue font-bold rounded-xl border-2 border-brand-blue hover:bg-blue-50 transition">
+                                Volver al inicio
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-gray-800 text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+                    <div class="col-span-2 md:col-span-1 space-y-4">
+                        <div class="flex items-center gap-2">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-red to-red-300 flex items-center justify-center text-white text-xl shadow-lg">
+                                <i class="fa-solid fa-gift"></i>
+                            </div>
+                            <span class="font-heading font-bold text-xl tracking-tight">El Regalo <span class="text-brand-red">Más Grande</span></span>
+                        </div>
+                        <p class="text-gray-400 text-sm max-w-xs">La plataforma que transforma el voluntariado en impacto digital y medible.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-heading font-semibold mb-4 text-brand-red">Navegación</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#inicio" class="text-gray-300 hover:text-white transition">Inicio</a></li>
+                            <li><a href="#soluciones" class="text-gray-300 hover:text-white transition">Nuestra Solución</a></li>
+                            <li><a href="#registro" class="text-gray-300 hover:text-white transition">Únete Ahora</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                     <div>
+                        <h4 class="text-lg font-heading font-semibold mb-4 text-brand-red">Legal</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Política de Privacidad</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Términos de Servicio</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition">Centro de Ayuda</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-lg font-heading font-semibold mb-4 text-brand-red">Contacto</h4>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-center"><i class="fa-solid fa-envelope mr-3 text-brand-blue"></i> info@regalomásgrande.org</li>
+                            <li class="flex items-center"><i class="fa-solid fa-phone mr-3 text-brand-blue"></i> +1 (555) 123-4567</li>
+                            <li class="flex items-center"><i class="fa-solid fa-location-dot mr-3 text-brand-blue"></i> Cloud City, Skyway</li>
+                        </ul>
+                        <div class="flex space-x-4 mt-6">
+                            <a href="#" class="text-gray-400 hover:text-brand-red transition text-xl"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-brand-red transition text-xl"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-brand-red transition text-xl"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 pt-8 border-t border-gray-700 text-center">
+                    <p class="text-sm text-gray-400">&copy; 2025 El Regalo Más Grande del Mundo. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <section id="coordinatorDashboard" class="hidden-section min-h-screen pt-24 pb-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="cloud-shape cloud-2 top-[20%] animate-float-slow opacity-20 bg-gray-400" style="animation-delay: -3s;"></div>
-            <div class="cloud-shape cloud-1 bottom-[30%] animate-float-fast opacity-30 bg-gray-300" style="animation-delay: -12s; z-index: 20;"></div>
-        </div>
-
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-white/95 backdrop-blur-xl rounded-[3rem] shadow-2xl overflow-hidden flex flex-col md:flex-row hover-float border border-white/20">
-                
-                <div class="md:w-5/12 bg-cover bg-center relative hidden md:block" style="background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-orange/50 to-brand-blue/40 mix-blend-multiply"></div>
-                    <div class="absolute bottom-0 left-0 p-12 text-white">
-                        <i class="fa-solid fa-hand-holding-heart text-5xl mb-4"></i>
-                        <h3 class="font-heading text-3xl font-bold leading-tight">Tu misión inicia ahora.</h3>
-                        <p class="text-gray-200 mt-2">Pequeños actos, impacto global.</p>
-                    </div>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+                <div>
+                    <h1 class="font-heading text-3xl font-bold text-brand-dark">Panel de Gestión</h1>
+                    <p class="text-gray-500">Publica nuevas oportunidades de voluntariado.</p>
                 </div>
+                <button onclick="goHome()" class="text-sm text-gray-500 hover:text-brand-red font-medium flex items-center">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Cerrar sesión
+                </button>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
                 
-                <div class="md:w-7/12 p-12 lg:p-16 relative">
-                    <div id="formContent" class="transition-all duration-500">
-                        <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">Únete a la Tripulación</h2>
-                        <p class="text-gray-600 mb-8 text-lg">Regístrate en nuestra plataforma y empieza a construir tu historial de impacto.</p>
-                        
-                        <form id="registrationForm" class="space-y-6">
-                            <div class="grid sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label for="nombre" class="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
-                                    <input type="text" id="nombre" name="nombre" placeholder="Juan Pérez" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue transition duration-300 shadow-sm" required>
-                                </div>
-                                <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Correo Electrónico</label>
-                                    <input type="email" id="email" name="email" placeholder="volar@ejemplo.org" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue transition duration-300 shadow-sm" required>
-                                </div>
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 sticky top-28">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-brand-blue text-lg">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </div>
+                            <h2 class="font-heading text-xl font-bold text-brand-dark">Publicar Nuevo Evento</h2>
+                        </div>
+
+                        <form id="eventForm" class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nombre del Evento</label>
+                                <input type="text" id="evtTitle" placeholder="Ej. Limpieza de Playa" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition text-sm" required>
                             </div>
                             
                             <div>
-                                <label for="rol" class="block text-sm font-medium text-gray-700 mb-2">Quiero registrarme como</label>
-                                <select id="rol" name="rol" class="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue transition duration-300 shadow-sm appearance-none" required>
-                                    <option value="" disabled selected>Selecciona tu rol</option>
-                                    <option value="voluntario">Voluntario Individual</option>
-                                    <option value="coordinador">Coordinador de Proyecto</option>
-                                    <option value="organizacion">Organización/ONG</option>
-                                </select>
-                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                    <i class="fa-solid fa-chevron-down"></i>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Fecha y Hora</label>
+                                <input type="datetime-local" id="evtDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition text-sm" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Lugar</label>
+                                <input type="text" id="evtLocation" placeholder="Ej. Playa Costa Verde" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition text-sm" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Descripción Breve</label>
+                                <textarea id="evtDesc" rows="3" placeholder="Describe el objetivo..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition text-sm" required></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Cupos</label>
+                                    <input type="number" id="evtCap" placeholder="50" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition text-sm" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Horas</label>
+                                    <input type="number" id="evtHours" placeholder="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-brand-blue focus:border-brand-blue transition text-sm" required>
                                 </div>
                             </div>
 
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                    <input id="terminos" name="terminos" type="checkbox" class="focus:ring-brand-orange h-5 w-5 text-brand-orange border-gray-300 rounded transition" required>
-                                </div>
-                                <div class="ml-3 text-sm">
-                                    <label for="terminos" class="font-medium text-gray-700">Acepto los <a href="#" class="text-brand-orange hover:text-orange-700 font-bold">Términos y Condiciones</a>.</label>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" id="submitBtn" class="w-full flex items-center justify-center px-8 py-4 text-lg font-bold rounded-xl text-white bg-gradient-to-r from-brand-blue to-cyan-500 shadow-blue-500/40 shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all duration-300">
-                                <span id="btnText"><i class="fa-solid fa-user-plus mr-2"></i> Confirmar Registro</span>
-                                <span id="btnLoader" class="hidden"><i class="fa-solid fa-circle-notch fa-spin mr-2"></i> Enviando...</span>
+                            <button type="submit" class="w-full mt-4 bg-brand-blue text-white font-bold py-3 rounded-xl hover:bg-blue-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                <i class="fa-solid fa-paper-plane mr-2"></i> Publicar Evento
                             </button>
                         </form>
                     </div>
-
-                    <div id="successMessage" class="hidden h-full flex flex-col justify-center items-center text-center animate-fade-in py-10">
-                        <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6 shadow-lg">
-                            <i class="fa-solid fa-check text-5xl text-green-500"></i>
-                        </div>
-                        <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">¡Gracias por registrarte!</h2>
-                        <p class="text-gray-600 text-lg mb-8 max-w-md">Hemos recibido tus datos correctamente. Pronto nos contactaremos contigo para empezar esta aventura.</p>
-                        <button onclick="location.reload()" class="px-8 py-3 text-brand-blue font-bold rounded-xl border-2 border-brand-blue hover:bg-blue-50 transition">
-                            Volver al inicio
-                        </button>
-                    </div>
-
                 </div>
+
+                <div class="lg:col-span-2">
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 min-h-[500px]">
+                        <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-100">
+                            <h2 class="font-heading text-xl font-bold text-brand-dark">Eventos Disponibles (Vista de Voluntario)</h2>
+                            <span class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full font-bold">En vivo</span>
+                        </div>
+
+                        <div id="eventsContainer" class="space-y-6">
+                            <div class="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-brand-red/30 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red/5 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-brand-red/10"></div>
+                                
+                                <div class="flex flex-col md:flex-row gap-6 relative z-10">
+                                    <div class="flex-shrink-0 flex flex-col items-center justify-center bg-blue-50 w-20 h-20 rounded-2xl text-brand-blue border border-blue-100">
+                                        <span class="text-xs font-bold uppercase">DIC</span>
+                                        <span class="text-2xl font-black">24</span>
+                                    </div>
+                                    
+                                    <div class="flex-grow">
+                                        <div class="flex flex-wrap gap-2 mb-2">
+                                            <span class="text-xs font-bold text-brand-red bg-red-50 px-2 py-1 rounded-md"><i class="fa-solid fa-clock mr-1"></i> 5 Horas</span>
+                                            <span class="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded-md"><i class="fa-solid fa-users mr-1"></i> 15/50 Cupos</span>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-800 mb-2">Entrega de Regalos Navideños</h3>
+                                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Únete a nosotros para llevar alegría a los niños de la comunidad. Necesitamos apoyo en logística y animación.</p>
+                                        
+                                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                                            <i class="fa-solid fa-location-dot mr-2 text-brand-blue"></i> Plaza de Armas, Lima
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-col justify-center">
+                                        <button onclick="alert('¡Inscripción simulada exitosa! El voluntario quedaría registrado.')" class="bg-brand-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-red transition shadow-md whitespace-nowrap">
+                                            Inscribirse
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="emptyState" class="hidden flex flex-col items-center justify-center py-12 text-center">
+                            <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-calendar-xmark text-3xl text-gray-300"></i>
+                            </div>
+                            <p class="text-gray-400">No hay eventos publicados aún.</p>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-                <div class="col-span-2 md:col-span-1 space-y-4">
-                    <div class="flex items-center gap-2">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-orange to-orange-300 flex items-center justify-center text-white text-xl shadow-lg">
-                            <i class="fa-solid fa-gift"></i>
-                        </div>
-                        <span class="font-heading font-bold text-xl tracking-tight">El Regalo <span class="text-brand-orange">Más Grande</span></span>
-                    </div>
-                    <p class="text-gray-400 text-sm max-w-xs">La plataforma que transforma el voluntariado en impacto digital y medible.</p>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-heading font-semibold mb-4 text-brand-orange">Navegación</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#inicio" class="text-gray-300 hover:text-white transition">Inicio</a></li>
-                        <li><a href="#soluciones" class="text-gray-300 hover:text-white transition">Nuestra Solución</a></li>
-                        <li><a href="#registro" class="text-gray-300 hover:text-white transition">Únete Ahora</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Blog</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-heading font-semibold mb-4 text-brand-orange">Legal</h4>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Política de Privacidad</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Términos de Servicio</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition">Centro de Ayuda</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-lg font-heading font-semibold mb-4 text-brand-orange">Contacto</h4>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-center"><i class="fa-solid fa-envelope mr-3 text-brand-blue"></i> info@regalomásgrande.org</li>
-                        <li class="flex items-center"><i class="fa-solid fa-phone mr-3 text-brand-blue"></i> +1 (555) 123-4567</li>
-                        <li class="flex items-center"><i class="fa-solid fa-location-dot mr-3 text-brand-blue"></i> Cloud City, Skyway</li>
-                    </ul>
-                    <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-gray-400 hover:text-brand-orange transition text-xl"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-brand-orange transition text-xl"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-brand-orange transition text-xl"><i class="fa-brands fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-16 pt-8 border-t border-gray-700 text-center">
-                <p class="text-sm text-gray-400">&copy; 2025 El Regalo Más Grande del Mundo. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
+        // --- LOGICA DE FORMULARIO ORIGINAL ---
         document.getElementById('registrationForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue
-
-            // Elementos de la interfaz
+            e.preventDefault(); 
             const formContent = document.getElementById('formContent');
             const successMessage = document.getElementById('successMessage');
             const btnText = document.getElementById('btnText');
             const btnLoader = document.getElementById('btnLoader');
             const submitBtn = document.getElementById('submitBtn');
 
-            // 1. Mostrar estado de "Cargando"
             btnText.classList.add('hidden');
             btnLoader.classList.remove('hidden');
             submitBtn.disabled = true;
             submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
 
-            // 2. Simular envío (espera de 1.5 segundos)
             setTimeout(() => {
-                // Ocultar formulario
                 formContent.classList.add('hidden');
-                
-                // Mostrar mensaje de éxito
                 successMessage.classList.remove('hidden');
-                
-                // Opcional: Desplazar suavemente hacia el mensaje si es necesario
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 1500);
         });
+
+        // --- NUEVA LÓGICA: GESTIÓN DE VISTAS Y EVENTOS ---
+
+        const mainLanding = document.getElementById('mainLanding');
+        const coordinatorDashboard = document.getElementById('coordinatorDashboard');
+        const eventsContainer = document.getElementById('eventsContainer');
+        const eventForm = document.getElementById('eventForm');
+
+        function showCoordinatorDashboard() {
+            mainLanding.classList.add('hidden-section');
+            coordinatorDashboard.classList.remove('hidden-section');
+            coordinatorDashboard.classList.add('animate-fade-in');
+            window.scrollTo(0,0);
+        }
+
+        function goHome() {
+            coordinatorDashboard.classList.add('hidden-section');
+            mainLanding.classList.remove('hidden-section');
+            window.scrollTo(0,0);
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const months = ["ENE", "FEB", "MAR", "ABR", "MAY", "JUN", "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"];
+            return {
+                day: date.getDate(),
+                month: months[date.getMonth()]
+            };
+        }
+
+        eventForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const title = document.getElementById('evtTitle').value;
+            const dateStr = document.getElementById('evtDate').value;
+            const loc = document.getElementById('evtLocation').value;
+            const desc = document.getElementById('evtDesc').value;
+            const cap = document.getElementById('evtCap').value;
+            const hours = document.getElementById('evtHours').value;
+
+            if(!dateStr) return; 
+            const dateObj = formatDate(dateStr);
+
+            const newCard = document.createElement('div');
+            // CAMBIO: Hover border a rojo
+            newCard.className = 'group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-brand-red/30 relative overflow-hidden animate-fade-in mt-4';
+            newCard.innerHTML = `
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-red/5 rounded-bl-full -mr-4 -mt-4 transition group-hover:bg-brand-red/10"></div>
+                
+                <div class="flex flex-col md:flex-row gap-6 relative z-10">
+                    <div class="flex-shrink-0 flex flex-col items-center justify-center bg-brand-red w-20 h-20 rounded-2xl text-white shadow-lg shadow-red-200">
+                        <span class="text-xs font-bold uppercase">${dateObj.month}</span>
+                        <span class="text-2xl font-black">${dateObj.day}</span>
+                    </div>
+                    
+                    <div class="flex-grow">
+                        <div class="flex flex-wrap gap-2 mb-2">
+                            <span class="text-xs font-bold text-brand-red bg-red-50 px-2 py-1 rounded-md"><i class="fa-solid fa-clock mr-1"></i> ${hours} Horas</span>
+                            <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded-md"><i class="fa-solid fa-users mr-1"></i> 0/${cap} Cupos</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">${title}</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">${desc}</p>
+                        
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fa-solid fa-location-dot mr-2 text-brand-red"></i> ${loc}
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center">
+                        <button onclick="alert('¡Te has inscrito a: ${title}!')" class="bg-brand-dark text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-red transition shadow-md whitespace-nowrap">
+                            Inscribirse
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            eventsContainer.prepend(newCard);
+            eventForm.reset();
+            alert("¡Evento publicado con éxito! Ahora aparece en el listado.");
+        });
+
     </script>
 </body>
 </html>
